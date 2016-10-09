@@ -1,0 +1,17 @@
+*.egg-info
+*.pyc
+*.swp
+.installed.cfg
+db.sqlite3
+ve/
+django-ckeditor.sublime-workspace
+django-ckeditor.sublime-project
+*.DS_Store
+*.egg
+static/
+media/
+.tox/
+.coverage
+.coverage.*
+.idea
+cms/migrations/

@@ -1,0 +1,8 @@
+beautifulsoup4==4.5.1
+bs4==0.0.1
+Django==1.10.2
+django-ckeditor==5.1.1
+html5lib==0.999999999
+Pillow==3.4.1
+six==1.10.0
+webencodings==0.5
