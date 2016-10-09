@@ -2,7 +2,12 @@ beautifulsoup4==4.5.1
 bs4==0.0.1
 Django==1.10.2
 django-ckeditor==5.1.1
+django-crispy-forms==1.6.0
+django-filter==0.15.2
+django-guardian==1.4.6
+djangorestframework==3.4.7
 html5lib==0.999999999
+Markdown==2.6.7
 Pillow==3.4.1
 six==1.10.0
 webencodings==0.5

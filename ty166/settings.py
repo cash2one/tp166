@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+'rest_framework',
     'cms'
 ]
 
@@ -201,3 +202,5 @@ CKEDITOR_CONFIGS = {
             ]),
     }
 }
+
+#Markdown
