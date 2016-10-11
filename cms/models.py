@@ -1,6 +1,5 @@
-from django.db import models
-from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db import models
 
 
 # Create your models here.
@@ -27,25 +26,21 @@ class EncodeFormat(models.Model):
 
 
 class Content(models.Model):
-    title = models.CharField(max_length=240, verbose_name="文章标题")
-    category = models.ForeignKey(Category, null=True, verbose_name="文章类型")
-    encodeformat= models.ForeignKey(EncodeFormat,verbose_name="编码格式")
-    source = models.CharField(max_length=240,verbose_name="来源",null=True,blank=True,db_index=True)
-    isMedia= models.BooleanField(default=False,verbose_name="媒体吗",db_index=True)
-    content =RichTextUploadingField(verbose_name="文章内容",max_length=1024)
-    created_date=models.DateTimeField(auto_now_add=True)
-    updated_date=models.DateTimeField(auto_now=True,db_index=True)
-    published_date=models.DateTimeField(auto_now=True)
-    published=models.BooleanField(default=False)
+    title = models.CharField(max_length=240, verbose_name="文章标题",db_index=True)
+
+    encodeformat = models.CharField(max_length=120, verbose_name="编码格式", null=True)
+    source = models.CharField(max_length=240, verbose_name="来源", null=True, blank=True, db_index=True)
+    isMedia = models.BooleanField(default=False, verbose_name="媒体吗", db_index=True)
+    content = RichTextUploadingField(verbose_name="文章内容", max_length=1024)
+    category= models.CharField(max_length=120,null=True,db_index=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True, db_index=True)
+    published_date = models.DateTimeField(auto_now=True)
+    published = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title+"_"+self.source
+        return self.title
 
     class Meta:
-        verbose_name_plural="文章"
-
-
-
-
-
-
+        verbose_name_plural = "文章"
+        unique_together=('title','source','content')

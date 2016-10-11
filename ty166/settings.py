@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'r0quf3nshdb)h@2jo4e@0&i+yk+nms)uxbsn^uv304853(edbc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
-'rest_framework',
-    'cms'
+    'rest_framework',
+    'cms.apps.CmsConfig'
 ]
 
 MIDDLEWARE = [
