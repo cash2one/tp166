@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello World!</title>
+    <link href="//cdn.bootcss.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            {% for topic in topics.object_list %}
+                <div class="card">
+                    {% if topic.isMedia %}
+                        <img class="card-img-top img-responsive" src="{{ topic.content }}"/>
+                        <div class="card-block">
+                        <h4 class="card-title">{{ topic.title }}</h4>
+                        <p class="card-title">{{ topic.created_date }}</p>
+
+                    {% else %}
+                        <p class="card-text">{{ topic.content|safe }}</p>
+                    {% endif %}
+
+                    </div>
+                </div>
+
+
+            {% endfor %}
+
+
+            <p>
+                {% if topics.has_previous %}
+                    <a href="?page={{ topics.previous_page_number }}">Previous</a>
+                {% endif %}
+                {# topics.paginator.number_pages 返回总页数 #}
+                Page {{ topics.number }} of {{ topics.paginator.num_pages }}.
+                {% if topics.has_next %}
+                    <a href="?page={{ topics.next_page_number }}">Next</a>
+                {% endif %}
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<!-- 第一种分页显示方式 -->
+<p>
+    {# topics.paginator.page_range 这个函数返回包含一个所有页码数的 range 对象 #}
+    {# 即 range(1, topics.paginator.num_pages + 1) #}
+    {#  {% for page_number in topics.paginator.page_range %}#}
+    {#    {% ifequal page_number  topics.number %}#}
+    {#      {{ page_number }}#}
+    {#    {% else %}#}
+    {#      <a href="?page={{ page_number }}">{{ page_number }}</a>#}
+    {#    {% endifequal %}#}
+    {#  {% endfor %}#}
+</p>
+
+
+<!-- 另一种分页显示方式 -->
+
+</body>
+</html>

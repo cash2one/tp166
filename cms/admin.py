@@ -6,6 +6,7 @@ class ContentAdmin(admin.ModelAdmin):
     list_display = ('id','title','category','preview','published','created_date')
     list_filter = ('category','isMedia')
     list_per_page = 20
+    search_fields = ('title',)
 
     def preview(self,obj):
         if obj.isMedia is not True:
